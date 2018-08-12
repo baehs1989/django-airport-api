@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load kilobytes_to_megabytes %}
+
+{% block content %}
+  <script>
+  $('.nav-link.files').addClass('active');
+  </script>
+
+    <table class="table table-bordered table-hover table-striped table-foldersystem">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in file_list %}
+          <tr>
+            <td><i class="far fa-file-alt"></i></td>
+            <td>{{file.filename}}</td>
+            <td>{{file.docfile.size|kilobytes_to_megabytes}} MB</td>
+            <td>{{file.created_at}}</td>
+            <td><a href="{{file.docfile.url}}"><i class="fas fa-download"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-trash-alt"></i></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}

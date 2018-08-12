@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script>
+  $('.nav-link.airports').addClass('active');
+  </script>
+
+  <table class="table table-bordered table-hover table-striped table-foldersystem">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for airport in airport_list %}
+        <tr>
+          <td>{{airport.airport_id}}</td>
+          <td>{{airport.name}}</td>
+          <td>{{airport.type}}</td>
+          <td>{{airport.city}}, {{airport.country}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

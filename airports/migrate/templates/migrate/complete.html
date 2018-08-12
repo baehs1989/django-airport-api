@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script>
+  $('.nav-link.data-migrate').addClass('active');
+  </script>
+
+  <h1>Migration has been completed!</h1>
+  <p>{{ success }} created, {{ update }} updated, {{ fail }} failed</p>
+
+{% endblock %}

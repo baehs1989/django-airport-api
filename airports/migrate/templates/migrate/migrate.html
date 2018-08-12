@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script>
+  $('.nav-link.data-migrate').addClass('active');
+  </script>
+
+  <div class="migrate selection">
+    {% if all_files.count > 0 %}
+      <form method="POST" action="{% url 'migrate:migrations' %}">
+        <h3>Please select a file you want to use for DB migration.</h3>
+        <table class="table table-bordered table-hover table-striped table-foldersystem">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for file in all_files %}
+              <tr class="single_row">
+                <td><input type="radio" name="selected_file" id="{{ file.filename }}" value="{{ file.pk }}" required></td>
+                <td>{{file.filename}}</td>
+                <td>{{file.created_at}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% csrf_token %}
+        <input type="submit" value="Migrate">
+      </form>
+
+    {% else %}
+      <h1>No file uploaded</h1>
+    {% endif %}
+
+  </div>
+
+
+{% endblock %}

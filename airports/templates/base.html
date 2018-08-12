@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Flight Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static 'airports/css/upload.css'%}">
+    <link rel="stylesheet" href="{% static 'airports/css/main.css'%}">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center pt-4">
+        <div class="col-8">
+          <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link home" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link upload" href="{% url 'file:upload' %}">Upload</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link files" href="{% url 'file:files' %}">Files</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link airports" href="{% url 'airport:list' %}">Airports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link data-migrate" href="{% url 'migrate:migrate' %}">Data-Migrate</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-center pt-5">
+        <div class="col-8" style="text-align:center;">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+
+  <script type="text/javascript" src="{% static 'airports/js/upload.js' %}"></script>
+  <script type="text/javascript" src="{% static 'airports/js/main.js' %}"></script>
+
+
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script>
+  $('.nav-link.upload').addClass('active');
+  </script>
+
+  <form method="post" class="file-uploader" action="{% url 'file:upload' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="file-uploader__message-area">
+      <p>Select a file to upload</p>
+    </div>
+    <div class="file-chooser">
+      <input class="file-chooser__input" name="docfile" required="" id="id_docfile" type="file">
+    </div>
+    <input class="file-uploader__submit-button" type="submit" value="Upload">
+  </form>
+
+{% endblock %}
