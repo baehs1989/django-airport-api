@@ -1,10 +1,20 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-
   <script>
   $('.nav-link.data-migrate').addClass('active');
+
+  window.addEventListener("load", function(){
+    $(".loading").remove();
+  });
   </script>
+
+  <div class="loading">
+    <img src="{% static 'airports/img/loading.gif'%}" width="100%"/>
+  </div>
+
+
 
   <h1>Migration has been completed!</h1>
   <p>{{ success }} created, {{ update }} updated, {{ fail }} failed</p>

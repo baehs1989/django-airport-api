@@ -1,5 +1,5 @@
 .file-uploader {
-  background-color: #dbefe9;
+  background-color: #ced4da;
   border-radius: 3px;
   color: #242424;
 }
@@ -8,7 +8,7 @@
   font-size: 18px;
   padding: 1em;
   text-align: center;
-  color: #377a65;
+  color: black;
 }
 
 .file-list {
@@ -95,11 +95,11 @@
   border: none;
   font-size: 1.5em;
   padding: 1em;
-  background-color: #72bfa7;
+  background-color: #818488;
   color: white;
 }
 .file-uploader__submit-button:hover {
-  background-color: #a7d7c8;
+  background-color: #383d41;
 }
 
 .file-list li:after, .file-uploader:after {

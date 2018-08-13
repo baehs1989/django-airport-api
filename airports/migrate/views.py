@@ -19,10 +19,27 @@ from django.conf import settings
 
 from .file_validations import airport_file_validations
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 def list(request):
     # Render list page with the documents and the form
     all_files = Document.objects.all()
-    return render(request, 'migrate/migrate.html', {'all_files': all_files})
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_files, 10)
+
+
+    try:
+        files = paginator.page(page)
+    except PageNotAnInteger:
+        files = paginator.page(1)
+    except EmptyPage:
+        files = paginator.page(paginator.num_pages)
+
+    print (files.start_index())
+    print (files)
+
+    return render(request, 'migrate/migrate.html', {'all_files': files})
 
 def migrations(request):
     # Render list page with the documents and the form

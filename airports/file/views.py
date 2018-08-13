@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 from .models import Document
 from .forms import DocumentForm
@@ -51,5 +51,20 @@ def success(request):
 
 class FileList(generic.ListView):
     model = Document
+    paginate_by = 10
     template_name = 'file/file_list.html'
     context_object_name = 'file_list'
+
+class DeleteFile(generic.DeleteView):
+    model = Document
+    # success_url = reverse_lazy('posts:all')
+
+    def get_success_url(self):
+        return reverse_lazy('file:files')
+        # return reverse_lazy('groups:single', kwargs={'slug': self.object.group.slug})
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     return queryset.filter(user_id = self.request.user.id)
+
+    def delete(self,*args,**kwargs):
+        return super().delete(*args,**kwargs)

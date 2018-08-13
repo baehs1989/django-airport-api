@@ -23,13 +23,37 @@
             <td>{{file.filename}}</td>
             <td>{{file.docfile.size|kilobytes_to_megabytes}} MB</td>
             <td>{{file.created_at}}</td>
-            <td><a href="{{file.docfile.url}}"><i class="fas fa-download"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-trash-alt"></i></td>
+            <td><a href="{{file.docfile.url}}"><i class="fas fa-download"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="{% url 'file:delete' pk=file.pk %}"><i class="far fa-trash-alt"></i></a></td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
 
-
+  {% if is_paginated %}
+    <div class="row justify-content-center">
+      <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-left">
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span></a></li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+        <li class="page-item active"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+        {% else %}
+        <li class="page-item disabled"><a class="page-link" href="#"><span>&raquo;</span></a></li>
+        {% endif %}
+      </ul>
+      </nav>
+    </div>
+  {% endif %}
 
 
 

@@ -5,4 +5,7 @@ register = template.Library()
 
 @register.filter
 def kilobytes_to_megabytes(value):
-    return '{0:.2f}'.format(value * 0.001)
+    print (value * 0.000001)
+
+
+    return '{0:.2f}'.format(value * 0.000001)

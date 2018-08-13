@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load kilobytes_to_megabytes %}
+
+{% block content %}
+  <script>
+  $('.nav-link.files').addClass('active');
+  </script>
+
+  <h3>Are you sure you want to delete {{object.filename}}?</h3>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger btn-large" value="Confirm Delete">
+    <a href="{% url 'file:files' %}" class='btn btn-simple btn-large btn-default'>
+      Cancel
+    </a>
+  </form>
+
+
+{% endblock %}
