@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'airport',
     'migrate',
     'file',
-
 ]
 
 MIDDLEWARE = [

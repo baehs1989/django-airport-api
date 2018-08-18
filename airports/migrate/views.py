@@ -21,6 +21,7 @@ from .file_validations import airport_file_validations
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 def list(request):
     # Render list page with the documents and the form
     all_files = Document.objects.all()
