@@ -65,7 +65,6 @@ def airport_file_validations(text:str):
             result = 1
             airport = Airport.objects.filter(pk=airport_id).first()
             airport.update(name=name, city=city, country=country, iata=iata, icao=icao, latitude=latitude, longitude=longitude, altitude=altitude, timezone=timezone, dst=dst, tz=tz, type=type, source=source)
-            print (airport)
             return airport, result
         else:
             # print ("SUCCESS")

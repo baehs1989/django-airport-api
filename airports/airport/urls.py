@@ -6,9 +6,9 @@ from rest_framework.routers import DefaultRouter
 app_name = "airport"
 
 router = DefaultRouter()
-router.register('API', views.AirportViewSet)
+router.register('airport', views.AirportViewSet)
 
 urlpatterns = [
     url(r'^list', views.AirportList.as_view(), name="list"),
-    url(r'', include(router.urls),)
+    url(r'api/', include(router.urls),)
 ]
