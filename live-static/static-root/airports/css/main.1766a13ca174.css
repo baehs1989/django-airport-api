@@ -1,0 +1,17 @@
+.single_row:hover{
+  cursor:pointer;
+}
+
+
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+@include media-breakpoint-up(sm) { ... }
+@include media-breakpoint-up(md) { ... }
+@include media-breakpoint-up(lg) { ... }
+@include media-breakpoint-up(xl) { ... }
+
+
+@media (max-width: 770px) {
+    table{
+       font-size:0.5em;
+    }
+}
