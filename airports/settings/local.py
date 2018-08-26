@@ -1,5 +1,7 @@
 from airports.settings.base import *
 
+SECRET_KEY = "temp"
+
 DEBUG = True
 
 DATABASES = {

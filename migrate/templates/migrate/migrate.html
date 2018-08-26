@@ -20,7 +20,7 @@
   <div class="migrate selection">
     {% if all_files.start_index > 0 %}
           <form id="migrate_form" method="POST" action="{% url 'migrate:migrations' %}" onsubmit="ShowLoading()">
-            <h3>Please select a file you want to use for DB migration.</h3>
+            <h3 class="mb-4">Please select a file you want to use for DB migration.</h3>
 
             <table class="table table-bordered table-hover table-striped table-foldersystem">
               <thead>

@@ -17,5 +17,86 @@
     <input class="file-uploader__submit-button" type="submit" value="Upload">
   </form>
 
-  dfd
+  <div class="data-sample">
+    <p><em>
+      Each line in a file is going to represent a single airport and must contains 14 fields separated by <b>comma</b>.
+      14 fields are the following information:
+      <table class="data-table">
+        <tbody>
+          <tr>
+            <td>Airport ID</td>
+            <td>Unique OpenFlights identifier for this airport.</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Name of airport. May or may not contain the City name.</td>
+          </tr>
+           <tr>
+            <td>City</td>
+            <td>Main city served by airport. May be spelled differently from Name.</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>Country or territory where airport is located.</td>
+          </tr>
+          <tr>
+            <td>IATA</td>
+            <td>3-letter IATA code. Null if not assigned/unknown.</td>
+          </tr>
+          <tr>
+            <td>ICAO</td>
+            <td>4-letter ICAO code.</td>
+          </tr>
+          <tr>
+            <td>Latitude</td>
+            <td>Decimal degrees, usually to six significant digits. Negative is South, positive is North.</td>
+          </tr>
+          <tr>
+            <td>Longitude</td>
+            <td>Decimal degrees, usually to six significant digits. Negative is West, positive is East.</td>
+          </tr>
+          <tr>
+            <td>Altitude</td>
+            <td>In feet.</td>
+          </tr>
+          <tr>
+            <td>Timezone</td>
+            <td>Hours offset from UTC. Fractional hours are expressed as decimals, eg. India is 5.5.</td>
+          </tr>
+          <tr>
+            <td>DST</td>
+            <td>Daylight savings time. One of E (Europe), A (US/Canada), S (South America), O (Australia), Z (New Zealand), N (None) or U (Unknown). </td>
+          </tr>
+          <tr>
+            <td>Tz database time zone</td>
+            <td>Timezone in "tz" (Olson) format, eg. "America/Los_Angeles".</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>Source of this data.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br/>
+      <br/>
+
+      <div class="data-sample">
+        Samples:
+        <br/>
+          <tr><td>507,"London Heathrow Airport","London","United Kingdom","LHR","EGLL",51.4706,-0.461941,83,0,"E","Europe/London","airport","OurAirports"</td></tr>
+          <tr><td>26,"Kugaaruk Airport","Pelly Bay","Canada","YBB","CYBB",68.534401,-89.808098,56,-7,"A","America/Edmonton","airport","OurAirports"</td></tr>
+          <tr><td>3127,"Pokhara Airport","Pokhara","Nepal","PKR","VNPK",28.200899124145508,83.98210144042969,2712,5.75,"N","Asia/Katmandu","airport","OurAirports"</td></tr>
+        </table>
+      </div>
+
+    </em></p>
+
+
+    <br/>
+    <em style="font-size:0.8em">OpenFlights. [ONLINE] Available at: https://openflights.org/data.html. [Accessed 15 August 2018].</em>
+  </div>
+
+
+
 {% endblock %}
