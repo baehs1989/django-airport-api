@@ -1,11 +1,13 @@
 import datetime
+import os
 
 # kirr.co/4h4c77
 
 AWS_GROUP_NAME = "django-airport-api-group"
 AWS_USER_NAME = "django-airport-api-user"
-AWS_ACCESS_KEY_ID = "AKIAIYVMRNTYVA3DRKIQ"
-AWS_SECRET_ACCESS_KEY = "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"
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
