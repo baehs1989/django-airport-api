@@ -5,6 +5,17 @@ DEBUG = False
 ALLOWED_HOSTS = [".herokuapp.com"]
 
 
+# DJANGO REST FRAMEWORK SETTING
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
+
+
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
