@@ -1,8 +1,8 @@
 from .base import *
 
-from .prod import *
+# from .prod import *
 
-# try:
-#     from .local import *
-# except:
-#     pass
+try:
+    from .local import *
+except:
+    pass
