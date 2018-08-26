@@ -119,6 +119,6 @@
 //init
 $(document).ready(function(){
   $('.fileUploader').uploader({
-    MessageAreaText: "No files selected. Please select a file."
+    MessageAreaText: "No files selected. Please select a file. (Only .dat accepted)"
   });
 });
