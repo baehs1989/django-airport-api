@@ -19,6 +19,7 @@ class Document(models.Model):
 
 @receiver(models.signals.post_delete, sender=Document)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
-    if instance.docfile:
-        if os.path.isfile(instance.docfile.path):
-            os.remove(instance.docfile.path)
+    # if instance.docfile:
+    #     if os.path.isfile(instance.docfile.path):
+    #         os.remove(instance.docfile.path)
+    instance.docfile.delete(save=False)

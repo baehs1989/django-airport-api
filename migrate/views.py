@@ -21,6 +21,9 @@ from .file_validations import airport_file_validations
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.core.files.storage import default_storage
+
+
 
 def list(request):
     # Render list page with the documents and the form
@@ -48,9 +51,15 @@ def migrations(request):
         selected_file = request.POST.get("selected_file")
         file = Document.objects.filter(pk=selected_file).first()
 
-        text = open(os.path.join(settings.MEDIA_ROOT, str(file)), 'rb')
-        lines = text.readlines()
-        text.close()
+        with default_storage.open(str(file), "rb") as f:
+            lines = f.readlines()
+
+        # print (os.path.join(settings.MEDIA_ROOT, str(file)))
+
+        # text = open(os.path.join(settings.MEDIA_ROOT, str(file)), 'rb')
+
+        # lines = text.readlines()
+        # text.close()
 
         success_count = 0
         failure_count = 0
