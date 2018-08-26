@@ -21,7 +21,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$h$f-k2pyvfjx6)w24u=rubt+&=3*x)q($stk7+y&b(l@^tnmz'
+SECRET_KEY = os.environ.get('APP_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    # third party
+    'storages',
+
+    # apps
     'user',
     'airport',
     'migrate',
@@ -130,10 +135,17 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
+#
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+from airports.aws.conf import *
+
+
+
+
+
