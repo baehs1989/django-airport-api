@@ -51,7 +51,7 @@ def airport_file_validations(text:str):
             latitude = float(info[6])
             longitude = float(info[7])
             altitude = float(info[8])
-            timezone = int(info[9])
+            timezone = float(info[9])
             dst = str(info[10])
             tz = str(info[11])
             type = str(info[12])
