@@ -35,7 +35,7 @@ def airport_file_validations(text:str):
     line = text.decode('utf-8')
     # print (line)
     info = line.split(',')
-    info = [li.replace('"', '').replace('\n','').replace('//N','') for li in info]
+    info = [li.replace('"', '').replace('\n','').replace('\\N','') for li in info]
 
     if len(info) != 14:
         # print ("ERROR1")
