@@ -1,4 +1,4 @@
-<h2>Django Airport API</h2>
+<h2>Django Airport API - https://django-airport-api.herokuapp.com/</h2>
 
 Get all airports<br/>
 GET https://django-airport-api.herokuapp.com/airport/api/airport/?page=[page]
